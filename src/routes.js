@@ -18,9 +18,7 @@ routes.post(
 			endereco: Joi.string().required(),
 			description: Joi.string()
 				.required(),
-				// .email(),
-			value: Joi.string()
-				.required(),
+		
 			position: Joi.string().required()
 		}),
 	}),
