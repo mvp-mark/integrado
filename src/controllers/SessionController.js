@@ -4,18 +4,18 @@ module.exports = {
     async create(request, response){
         const {id} = request.body;
 
-        const ong = await connection('ongs')
+        const shelves = await connection('shelves')
         .where('id',id)
         .select('name')
         .first();
 
 
-        if(!ong){
+        if(!shelves){
 
-            return response.status(400).json({ error: 'No ONG Found with this id'});
+            return response.status(400).json({ error: 'No shelves Found with this id'});
         }
 
-        return response.json(ong);
+        return response.json(shelves);
 
     }
 }

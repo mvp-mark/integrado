@@ -1,8 +1,8 @@
 const express = require('express');
 const { celebrate, Segments, Joi } = require('celebrate');
 
-const OngController = require('./controllers/OngController');
-const IncidentController = require('./controllers/IncidentController');
+const ShelvesController = require('./controllers/ShelvesController');
+const ProductController = require('./controllers/ProductController');
 const ProfileController = require('./controllers/ProfileController');
 const SessionController = require('./controllers/SessionController');
 
@@ -10,26 +10,21 @@ const routes = express();
 
 routes.post('/sessions', SessionController.create);
 
-routes.get('/ongs', OngController.index);
+routes.get('/shelves', ShelvesController.index);
 routes.post(
-	'/ongs',
+	'/shelves',
 	celebrate({
 		[Segments.BODY]: Joi.object().keys({
-			name: Joi.string().required(),
-			email: Joi.string()
-				.required()
-				.email(),
-			whatsapp: Joi.string()
-				.required()
-				.min(11)
-				.max(14),
-			city: Joi.string().required(),
-			uf: Joi.string()
-				.required()
-				.length(2),
+			endereco: Joi.string().required(),
+			description: Joi.string()
+				.required(),
+				// .email(),
+			value: Joi.string()
+				.required(),
+			position: Joi.string().required()
 		}),
 	}),
-	OngController.create
+	ShelvesController.create
 );
 
 routes.get(
@@ -42,22 +37,22 @@ routes.get(
 	ProfileController.index
 );
 
-routes.get('/incidents',celebrate({
+routes.get('/products',celebrate({
     [Segments.QUERY]: Joi.object().keys({
         page: Joi.number(),
     })
-}), IncidentController.index);
+}), ProductController.index);
 
 
-routes.post('/incidents', IncidentController.create);
-routes.delete(
-	'/incidents/:id',
-	celebrate({
-		[Segments.PARAMS]: Joi.object().keys({
-			id: Joi.number().required(),
-		}),
-	}),
-	IncidentController.delete
-);
+routes.post('/products', ProductController.create);
+// routes.delete(
+// 	'/incidents/:id',
+// 	celebrate({
+// 		[Segments.PARAMS]: Joi.object().keys({
+// 			id: Joi.number().required(),
+// 		}),
+// 	}),
+// 	ProductController.delete
+// );
 
 module.exports = routes;
