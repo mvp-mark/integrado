@@ -2,7 +2,7 @@
 exports.up = function (knex) {
     return knex.schema.createTable('shelves', function (table) {
         // table.increments();
-        table.string('id').notNullable();
+        table.string('id').notNullable().unique();
         table.string('endereco').notNullable();
         table.string('description').notNullable();
         table.string('position').notNullable();
