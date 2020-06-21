@@ -33,7 +33,7 @@ module.exports = {
 
 		// const id = generateUniqueId();
 		const product = await connection('product').insert({
-			id =generateUniqueId(),
+			id =id.generateUniqueId(),
 			name,
 			sku,
 			location,
