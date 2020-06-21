@@ -5,13 +5,7 @@ module.exports = {
   
   development: {
     client: 'postgresql',
-    connection: {
-      host:'ec2-34-230-231-71.compute-1.amazonaws.com',
-      filename: './src/database/pg.sql',
-      database: 'd33boe74hm0svv',
-      user:     'qucgjjglwdklfa',
-      password: 'bfbee71de2cf52f4f0e7426e15e283193ca3a7e9a7cb60b3a6c992565bbfbe02'
-    },
+    connection: 'postgres://qucgjjglwdklfa:bfbee71de2cf52f4f0e7426e15e283193ca3a7e9a7cb60b3a6c992565bbfbe02@ec2-34-230-231-71.compute-1.amazonaws.com:5432/d33boe74hm0svv'
     pool: {
       min: 2,
       max: 10
