@@ -36,7 +36,7 @@ module.exports = {
 			location,
 			order,
 			quantity
-		}, 'id');
+		});
 
 		return response.json({ id });
 	},
