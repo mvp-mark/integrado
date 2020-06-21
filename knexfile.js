@@ -2,16 +2,34 @@
 
 module.exports = {
 
+  
   development: {
-    client: 'sqlite3',
+    client: 'postgresql',
     connection: {
-      filename: './src/database/db.sqlite'
+      host:'ec2-34-230-231-71.compute-1.amazonaws.com',
+      filename: './src/database/pg.sql',
+      database: 'd33boe74hm0svv',
+      user:     'qucgjjglwdklfa',
+      password: 'bfbee71de2cf52f4f0e7426e15e283193ca3a7e9a7cb60b3a6c992565bbfbe02'
     },
-    migrations:{
-      directory: './src/database/migrations'
+    pool: {
+      min: 2,
+      max: 10
     },
-    useNullAsDefault: true,
+    migrations: {
+      tableName: 'knex_migrations'
+    }
   },
+  // development: {
+  //   client: 'sqlite3',
+  //   connection: {
+  //     filename: './src/database/db.sqlite'
+  //   },
+  //   migrations:{
+  //     directory: './src/database/migrations'
+  //   },
+  //   useNullAsDefault: true,
+  // },
   test: {
     client: 'sqlite3',
     connection: {
