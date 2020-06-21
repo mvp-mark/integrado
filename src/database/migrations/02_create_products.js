@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('product', function (table){
-    table.increments('id').unsigned().primary();;
+    table.increments('id').unsigned().primary();
     table.string('name').notNullable();
     table.string('sku').notNullable();
     table.string('location').notNullable();
