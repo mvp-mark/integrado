@@ -32,7 +32,7 @@ module.exports = {
 		const location = request.headers.authorization;
 
 		// const id = generateUniqueId();
-		const [product] = await connection('product').insert({
+		const product = await connection('product').insert({
 			id =generateUniqueId(),
 			name,
 			sku,
