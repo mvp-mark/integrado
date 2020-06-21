@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('product', function (table){
-    table.increments('id').unsigned().primary();
+    table.string('id').unsigned().primary();
     table.string('name').notNullable();
     table.string('sku').notNullable();
     table.string('location').notNullable();
@@ -9,7 +9,7 @@ exports.up = function(knex) {
     table.string('quantity').notNullable();
 
     table.foreign('location').references('id').inTable('shelves')
-    })
+    });
 };
 
 exports.down = function(knex) {
