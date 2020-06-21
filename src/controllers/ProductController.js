@@ -27,9 +27,9 @@ module.exports = {
 
 
 	async create(request, response) {
-		const { id, name, sku, order, quantity } = request.body;
+		const { id, name, sku,location, order, quantity } = request.body;
 		// request.headers;
-		const location = request.headers.authorization;
+		// const location = request.headers.authorization;
 
 		// const id = generateUniqueId();
 		const product = await connection('product').insert({
