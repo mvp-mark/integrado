@@ -29,7 +29,7 @@ module.exports = {
 		// request.headers;
 		// const location = request.headers.authorization;
 
-		const [id] = await connection('product').insert({
+		const id = await connection('product').insert({
 			name,
 			sku,
 			location,
