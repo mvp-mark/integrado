@@ -1,4 +1,6 @@
 const connection = require('../database/connection');
+const generateUniqueId = require('../utils/generateUniqueId');
+
 
 module.exports = {
 	async index(request, response) {
@@ -25,12 +27,13 @@ module.exports = {
 
 
 	async create(request, response) {
-		const { name, sku, order, quantity } = request.body;
+		const { id,name, sku, order, quantity } = request.body;
 		// request.headers;
 		const location = request.headers.authorization;
 
+		const id = generateUniqueId();
 		const [id] = await connection('product').insert({
-
+			id,
 			name,
 			sku,
 			location,
