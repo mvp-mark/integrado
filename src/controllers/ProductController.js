@@ -32,7 +32,7 @@ module.exports = {
 		const location = request.headers.authorization;
 
 		const id = generateUniqueId();
-		const [id] = await connection('product').insert({
+		const [product] = await connection('product').insert({
 			id,
 			name,
 			sku,
@@ -41,7 +41,7 @@ module.exports = {
 			quantity
 		});
 
-		return response.json({ id });
+		return response.json({ product });
 	},
 	// async delete (request,response){
 	// 	const {id} = request.params;
